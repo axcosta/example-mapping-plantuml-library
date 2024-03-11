@@ -1,0 +1,112 @@
+@startuml Common
+!$user_stories = 0
+!$rules = 0
+!$examples = 0
+!$questions = 0
+!$default_text_alignment ?= left
+!$default_user_story_color ?= Business
+!$default_rule_color ?= LightBlue
+!$default_example_color ?= YellowGreen
+!$default_question_color ?= LightPink
+!$default_description_font_size ?= 12
+!$default_spacing ?= "\n\n"
+!$default_max_characters_per_line ?= 30
+!$limit_max_characters_per_line ?= "true"
+!$show_map_stereotypes ?= "false"
+!$log_enabled ?= "false"
+
+skinparam rectangle {       
+    Shadowing false
+    DefaultTextAlignment $default_text_alignment    
+    BackgroundColor<<User Story>> $default_user_story_color
+    BorderColor<<User Story>> $default_user_story_color    
+    BackgroundColor<<Rule>> $default_rule_color
+    BorderColor<<Rule>> $default_rule_color    
+    BackgroundColor<<Example>> $default_example_color
+    BorderColor<<Example>> $default_example_color
+    BackgroundColor<<Question>> $default_question_color
+    BorderColor<<Question>> $default_question_color
+}
+
+!function $get_caption($label, $description)
+
+!if $label != ""
+  !if $limit_max_characters_per_line == "true"
+    !$label_length = %strlen($label)
+    !$max_iterations = $label_length / $default_max_characters_per_line
+    !if $log_enabled == "true"
+      !log Maximum Iterations: $max_iterations
+      !log Label (before): $label
+    !endif
+    !if $max_iterations > 0
+      !$i = 0
+      !$new_label = ""
+      !while ($i < $max_iterations)
+        !$current_line = %substr($label, $default_max_characters_per_line * $i, $default_max_characters_per_line) 
+        !if $log_enabled == "true"
+          !log i: $i
+          !log Current Line: $current_line
+        !endif
+        !$new_label = $new_label + $current_line + "\n"
+        !if $log_enabled == "true"
+          !log New Label: $new_label
+        !endif
+        !$i = $i + 1
+      !endwhile
+      !$remainder = %substr($label, $default_max_characters_per_line * $i)
+      !if $log_enabled == "true"
+        !log Remainder: $remainder
+      !endif
+      !$label = $new_label + $remainder
+      !if $log_enabled == "true"
+        !log Label (after): $label
+      !endif
+    !endif  
+  !endif
+!endif
+
+!$spacing = ""
+!if $description != ""
+!$spacing = $default_spacing
+!endif
+!return $label + $spacing + "<size:" + $default_description_font_size + ">" + $description + "</size>"
+!endfunction
+
+!function $get_alias($prefix, $index)
+!return $prefix + $index
+!endfunction
+
+!procedure $show_or_hide_map_stereotypes()
+!if $show_map_stereotypes != "true"
+  hide <<User Story>> stereotype
+  hide <<Rule>> stereotype
+  hide <<Example>> stereotype
+  hide <<Question>> stereotype
+!endif
+!endprocedure
+
+!procedure UserStory($label="", $description="")
+  $show_or_hide_map_stereotypes()
+  !$user_stories = $user_stories + 1  
+  rectangle $get_alias("us", $user_stories) as "$get_caption($label, $description)" <<User Story>>
+!endprocedure
+
+!procedure Rule($label="", $description="")  
+  $show_or_hide_map_stereotypes()
+  !$rules = $rules + 1  
+  rectangle $get_alias("r", $rules) as "$get_caption($label, $description)" <<Rule>>
+!endprocedure
+
+!procedure Example($label="", $description="") 
+  $show_or_hide_map_stereotypes()
+  !$examples = $examples + 1  
+  rectangle $get_alias("ex", $examples) as "$get_caption($label, $description)" <<Example>>
+!endprocedure
+
+!procedure Question($label="", $description="") 
+  $show_or_hide_map_stereotypes()
+  !$questions = $questions + 1  
+  rectangle $get_alias("q", $questions) as "$get_caption($label, $description)" <<Question>>
+!endprocedure
+
+@enduml
