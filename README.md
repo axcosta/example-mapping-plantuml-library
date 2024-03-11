@@ -8,16 +8,16 @@ To get started, include the `ExampleMappingCommon.puml` file from the `dist` dir
 
 ### Using this repository
 
-This references the latest _GitHub release_ version of the referenced file from GitHub when an Internet connection is available. It is recommended _not_ to use the `main` branch, but instead a specific release version. The examples below reference the current _0.1.0_ release.
+This references the latest _GitHub release_ version of the referenced file from GitHub when an Internet connection is available. It is recommended _not_ to use the `main` branch, but instead a specific release version. The example below references the current _0.1.0_ release.
 
 ```c
-!include https://raw.githubusercontent.com/axcosta/example-mapping-plantuml-library/0.1.0/dist/ExampleMappingCommon.puml
+!include https://raw.githubusercontent.com/axcosta/example-mapping-plantuml-library/0.1.0/ExampleMappingCommon.puml
 ```
 
 You can also define the URL and include de definition:
 
 ```c
-!define ExampleMappingPuml https://raw.githubusercontent.com/axcosta/example-mapping-plantuml-library/0.1.0/dist
+!define ExampleMappingPuml https://raw.githubusercontent.com/axcosta/example-mapping-plantuml-library/0.1.0
 !include ExampleMappingPuml/ExampleMappingCommon.puml
 ```
 
