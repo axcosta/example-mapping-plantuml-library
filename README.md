@@ -4,7 +4,7 @@ This is a really simple library to aid creation of Example Mapping diagrams with
 
 ## Getting Started
 
-To get started, include the `ExampleMappingCommon.puml` file from the `dist` directory in each `.puml` file or PlantUML diagram. This can be referenced by a URL directly to this repository, or by including the file locally.
+To get started, include the `ExampleMappingCommon.puml` file from the directory in each `.puml` file or PlantUML diagram. This can be referenced by a URL directly to this repository, or by including the file locally.
 
 ### Using this repository
 
@@ -37,6 +37,15 @@ These are the objects that can be defined:
 - Rule
 - Example
 - Question
+
+Each object can be created with two properties:
+
+- Label
+- Description
+
+These properties are optional but at least the `label` should be specified.
+
+Recomendation is to create one Plant UML file per `User Story` and group `Rules`, `Examples` and `Questions` by `User Story`.
 
 ### Demonstration
 
