@@ -1,0 +1,27 @@
+@startuml Process Free Shipping (examples/ProcessFreeShipping.puml) 
+
+!include ExampleMappingCommon.puml
+
+left to right direction
+
+title Process Free Shipping from [[https://draft.io/example/example-mapping]]
+
+UserStory("Process Free Shipping", "Give free shipping based on certain conditions") {
+  Question("What if customer lives in France?")
+  Question("What if customer wants a fast delivery?")
+  Question("What if customer uses fidelity points?")
+  Rule("Free shipping from $25 with certain category of products") {
+    Example("Free shipping from $25 picture closed to concerned products")
+  }
+  Rule("Free shipping marketing banner in product page") {
+    Example("Show banner when limit is not reached")
+    Example("Showcase free shipping when limit is exceeded")
+  }
+  Rule("Minimum of $50 in Shopping Cart") {
+    Example("Greater than $50 items get free delivery")
+    Example("All products are allowed in shopping cart")
+    Example("Show shipping costs while the limit is not reached")
+  }    
+}
+
+@enduml
