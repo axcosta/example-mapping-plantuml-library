@@ -1,6 +1,7 @@
 @startuml Process Free Shipping (examples/ProcessFreeShipping.puml) 
 
-!include ExampleMappingCommon.puml
+!define ExampleMappingPuml https://raw.githubusercontent.com/axcosta/example-mapping-plantuml-library/main/ExampleMappingCommon.puml
+!include ExampleMappingPuml/ExampleMappingCommon.puml
 
 left to right direction
 
