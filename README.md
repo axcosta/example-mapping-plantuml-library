@@ -10,7 +10,9 @@ To get started, include the `ExampleMappingCommon.puml` file from the `dist` dir
 
 This references the latest _GitHub release_ version of the referenced file from GitHub when an Internet connection is available. It is recommended _not_ to use the `main` branch, but instead a specific release version. The examples below reference the current _0.1.0_ release.
 
-`!include https://raw.githubusercontent.com/axcosta/example-mapping-plantuml-library/0.1.0/dist/ExampleMappingCommon.puml`
+```c
+!include https://raw.githubusercontent.com/axcosta/example-mapping-plantuml-library/0.1.0/dist/ExampleMappingCommon.puml
+```
 
 You can also define the URL and include de definition:
 
@@ -21,7 +23,9 @@ You can also define the URL and include de definition:
 
 ### Including the file locally
 
-`!include path/to/ExampleMappingCommon.puml`
+```c
+!include path/to/ExampleMappingCommon.puml
+```
 
 ## Example Mapping Diagram
 
@@ -35,6 +39,8 @@ These are the objects that can be defined:
 - Question
 
 ### Demonstration
+
+Below, there is the [examples/ProcessFreeShipping.puml](examples/ProcessFreeShipping.puml) diagram code:
 
 ```c
 @startuml Process Free Shipping (examples/ProcessFreeShipping.puml) 
